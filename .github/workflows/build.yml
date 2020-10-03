@@ -19,6 +19,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./latest/
+          file: ./latest/Dockerfile
           tags: |
             nusnus/rust-fat:latest
           no-cache: true
@@ -37,6 +38,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./slim/
+          file: ./slim/Dockerfile
           tags: |
             nusnus/rust-fat:slim
           no-cache: true
@@ -55,6 +57,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./alpine/
+          file: ./alpine/Dockerfile
           tags: |
             nusnus/rust-fat:alpine
           no-cache: true
