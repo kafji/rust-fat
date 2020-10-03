@@ -24,6 +24,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           tags: |
-            rust-fat
+            nusnus/rust-fat
           no-cache: true
           push: true
