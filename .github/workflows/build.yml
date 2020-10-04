@@ -23,7 +23,7 @@ jobs:
           context: ./latest/
           file: ./latest/Dockerfile
           build-args: |
-            CACHE_KEY: ${{ steps.cache-key.outputs.key }}
+            CACHE_KEY=${{ steps.cache-key.outputs.key }}
           tags: |
             nusnus/rust-fat:latest
           push: true
@@ -45,7 +45,7 @@ jobs:
           context: ./nightly/
           file: ./nightly/Dockerfile
           build-args: |
-            CACHE_KEY: ${{ steps.cache-key.outputs.key }}
+            CACHE_KEY=${{ steps.cache-key.outputs.key }}
           tags: |
             nusnus/rust-fat:nightly
           push: true
