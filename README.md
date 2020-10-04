@@ -10,7 +10,4 @@ Images are built at [12am UTC+0 everyday](https://github.com/kafji/rust-fat/blob
 ## Tags
 
 - [latest](https://github.com/kafji/rust-fat/blob/master/latest/Dockerfile)
-- [slim](https://github.com/kafji/rust-fat/blob/master/slim/Dockerfile)
-- [alpine](https://github.com/kafji/rust-fat/blob/master/alpine/Dockerfile)
 - [nightly](https://github.com/kafji/rust-fat/blob/master/nightly/Dockerfile)
-- [nightly-slim](https://github.com/kafji/rust-fat/blob/master/nightly-slim/Dockerfile)
