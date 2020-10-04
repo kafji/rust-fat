@@ -9,8 +9,9 @@ jobs:
   build_latest:
     runs-on: ubuntu-latest
     steps:
+      - id: timestamp
+        run: echo "::set-output name=date::$(date --utc +%Y-%m-%d)"
       - uses: actions/checkout@v2
-      - uses: docker/setup-qemu-action@v1
       - uses: docker/setup-buildx-action@v1
       - uses: docker/login-action@v1
         with:
@@ -21,19 +22,18 @@ jobs:
         with:
           context: ./latest/
           file: ./latest/Dockerfile
+          build-args: |
+            TIMESTAMP: ${{ steps.timestamp.outputs.date }}
           tags: |
             nusnus/rust-fat:latest
-          no-cache: true
-          platforms: |
-            linux/amd64
-            linux/arm64
           push: true
 
   build_nightly:
     runs-on: ubuntu-latest
     steps:
+      - id: timestamp
+        run: echo "::set-output name=date::$(date --utc +%Y-%m-%d)"
       - uses: actions/checkout@v2
-      - uses: docker/setup-qemu-action@v1
       - uses: docker/setup-buildx-action@v1
       - uses: docker/login-action@v1
         with:
@@ -44,10 +44,8 @@ jobs:
         with:
           context: ./nightly/
           file: ./nightly/Dockerfile
+          build-args: |
+            TIMESTAMP: ${{ steps.timestamp.outputs.date }}
           tags: |
             nusnus/rust-fat:nightly
-          no-cache: true
-          platforms: |
-            linux/amd64
-            linux/arm64
           push: true
