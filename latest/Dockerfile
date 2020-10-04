@@ -21,7 +21,7 @@ RUN echo 'Installing sccache...' && \
     sccache --version
 
 # Update registry index.
-ARG TIMESTAMP
+ARG CACHE_KEY
 RUN echo 'Updating registry index...' && \
-    echo "TIMESTAMP=$TIMESTAMP" && \
+    echo "CACHE_KEY=$CACHE_KEY" && \
     cargo search --verbose --limit 0
